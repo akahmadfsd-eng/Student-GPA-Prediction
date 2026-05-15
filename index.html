@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student GPA Predictor</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            text-align: center;
+            padding-top: 40px;
+        }
+
+        .box {
+            background: white;
+            width: 420px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 15px black;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 6px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 95%;
+            padding: 10px;
+            background: #2c5364;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0f2027;
+        }
+
+        h2 {
+            color: white;
+        }
+
+        .result {
+            margin-top: 15px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Student Performance Prediction System</h2>
+
+<div class="box">
+
+<form action="/predict" method="post">
+
+    <input type="text" name="studytime" placeholder="Study Time (1-4)" required>
+    <input type="text" name="failures" placeholder="Failures" required>
+    <input type="text" name="absences" placeholder="Absences" required>
+    <input type="text" name="G1" placeholder="G1 Marks" required>
+    <input type="text" name="G2" placeholder="G2 Marks" required>
+
+    <button type="submit">Predict GPA</button>
+
+</form>
+
+{% if prediction %}
+<div class="result">
+    Predicted G3: {{ prediction }} <br>
+    GPA: {{ gpa }}
+</div>
+{% endif %}
+
+</div>
+
+</body>
+</html>
